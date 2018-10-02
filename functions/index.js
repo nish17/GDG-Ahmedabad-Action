@@ -41,5 +41,15 @@ app.intent("AboutGDGIntent", conv => {
   // );
 });
 
+app.intent("DevFestIntent", conv => {
+  conv.ask(
+    new SimpleResponse({
+      speech: `DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building and learning about Google’s technologies.`,
+      text: `DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building and learning about Google’s technologies`
+    }),
+    new Suggestions([`List of Day 1 Events`, `List of Day 2 Events`])
+  );
+});
+
 // https://firebase.google.com/docs/functions/write-firebase-functions
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
