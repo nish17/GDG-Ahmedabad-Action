@@ -52,4 +52,5 @@ app.intent("DevFestIntent", conv => {
 });
 
 // https://firebase.google.com/docs/functions/write-firebase-functions
+
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
