@@ -48,17 +48,23 @@ app.intent("AboutGDGIntent", conv => {
   /* Issue: not showing in suggestion chips */
   conv.ask(
     new LinkOutSuggestion({
-      name: `GDG Abad Website`,
+      destinationName: `Meetup Website`,
+      openUrlAction: { url: "https://www.meetup.com/GDG-Ahmedabad/" }
+    })
+  );
+  conv.ask(
+    new LinkOutSuggestion({
+      destinationName: `GDG Abad Website`,
       openUrlAction: { url: "https://www.gdgahmedabad.com/" }
     })
   );
   /* Issue: while adding second LinkOutSuggestion it shows error */
-  // conv.ask(
-  //   new LinkOutSuggestion({
-  //     name: "DevFest Website",
-  //     url: "http://devfest.gdgahmedabad.com/"
-  //   })
-  // );
+  conv.ask(
+    new LinkOutSuggestion({
+      destinationName: "DevFest Website",
+      openUrlAction: { url: "http://devfest.gdgahmedabad.com/" }
+    })
+  );
 });
 
 app.intent("DevFestIntent", conv => {
