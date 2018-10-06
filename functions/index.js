@@ -11,7 +11,7 @@ const {
 } = require("actions-on-google");
 const app = dialogflow({ debug: true });
 const functions = require("firebase-functions");
-
+// https://www.meetup.com/GDG-Ahmedabad/events/past/
 app.intent("New Welcome Intent", conv => {
   conv.ask(
     new SimpleResponse({
@@ -44,27 +44,33 @@ app.intent("AboutGDGIntent", conv => {
     })
   );
 
-  conv.ask(new Suggestions([`Past Events`, `Exit`]));
-  /* Issue: not showing in suggestion chips */
   conv.ask(
+    new Suggestions([`Past Events`, `Exit`]),
     new LinkOutSuggestion({
-      destinationName: `Meetup Website`,
-      openUrlAction: { url: "https://www.meetup.com/GDG-Ahmedabad/" }
+      name: `GDG Abad Website`,
+      url: "https://www.gdgahmedabad.com/"
     })
   );
-  conv.ask(
-    new LinkOutSuggestion({
-      destinationName: `GDG Abad Website`,
-      openUrlAction: { url: "https://www.gdgahmedabad.com/" }
-    })
-  );
+  // /* Issue: not showing in suggestion chips */
+  // conv.ask(
+  //   new LinkOutSuggestion({
+  //     name: `Meetup Website`,
+  //     url: "https://www.meetup.com/GDG-Ahmedabad/"
+  //   })
+  // );
+  // conv.ask(
+  //   new LinkOutSuggestion({
+  //     name: `GDG Abad Website`,
+  //     url: "https://www.gdgahmedabad.com/"
+  //   })
+  // );
   /* Issue: while adding second LinkOutSuggestion it shows error */
-  conv.ask(
-    new LinkOutSuggestion({
-      destinationName: "DevFest Website",
-      openUrlAction: { url: "http://devfest.gdgahmedabad.com/" }
-    })
-  );
+  // conv.ask(
+  //   new LinkOutSuggestion({
+  //     name: "DevFest Website",
+  //     url: "http://devfest.gdgahmedabad.com/"
+  //   })
+  // );
 });
 
 app.intent("DevFestIntent", conv => {
@@ -85,7 +91,13 @@ app.intent("DevFestIntent", conv => {
       display: "CROPPED"
     })
   );
-  conv.ask(new Suggestions([`List of Day 1 Events`, `List of Day 2 Events`]));
+  conv.ask(
+    new Suggestions([`List of Day 1 Events`, `List of Day 2 Events`]),
+    new LinkOutSuggestion({
+      name: `DevFest 2018 Website`,
+      url: "http://devfest.gdgahmedabad.com/"
+    })
+  );
 });
 
 app.intent("WTMInfo", conv => {
@@ -103,18 +115,19 @@ app.intent("WTMInfo", conv => {
       }),
       image: new Image({
         url:
-          "https://pbs.twimg.com/profile_images/978335378913427464/xQmi_Cfr_400x400.jpg",
+          "https://lh4.googleusercontent.com/m-macIPNQbE_Z1tSdViidBMEcCWF6n0dEk5XIIFWclIAnmgGGfnMCgphlxKdmflFuBqYtQ=w1200-h630-p",
         alt: "WTM Icon"
       }),
-      display: "CROPPED"
+      display: "WHITE"
     })
   );
   // conv.ask(new Suggestions([`List of Day 1 Events`, `List of Day 2 Events`]));
   conv.ask(
     new LinkOutSuggestion({
-      name: "WTM Ahmedabad",
+      name: "Twitter: WTM A'bad",
       url: "https://www.twitter.com/wtmahmedabad"
-    })
+    }),
+    new Suggestions(`Exit`)
   );
 });
 
