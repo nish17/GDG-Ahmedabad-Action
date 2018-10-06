@@ -68,6 +68,7 @@ app.intent("AboutGDGIntent", conv => {
 });
 
 app.intent("DevFestIntent", conv => {
+  conv.ask(`<speak>Here's the information about DevFest</speak>`);
   conv.ask(
     new BasicCard({
       text: `DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building and learning about Google’s technologies.`,
@@ -85,6 +86,36 @@ app.intent("DevFestIntent", conv => {
     })
   );
   conv.ask(new Suggestions([`List of Day 1 Events`, `List of Day 2 Events`]));
+});
+
+app.intent("WTMInfo", conv => {
+  conv.ask(
+    `<speak>Here's the information about <sub alias="Women Tech Makers">WTM</sub></speak>`
+  );
+  conv.ask(
+    new BasicCard({
+      text: `A community encouraging women in tech, making Ahmedabad tech community diverse & comprehensive, share knowledge and passion through sessions, talks, workshops.`,
+      subtitle: "Dhurva Shastri leads Women Tech Makers Ahmedabad",
+      title: "About WTM",
+      buttons: new Button({
+        title: "Visit Website",
+        url: "https://www.womentechmakers.com/"
+      }),
+      image: new Image({
+        url:
+          "https://pbs.twimg.com/profile_images/978335378913427464/xQmi_Cfr_400x400.jpg",
+        alt: "WTM Icon"
+      }),
+      display: "CROPPED"
+    })
+  );
+  // conv.ask(new Suggestions([`List of Day 1 Events`, `List of Day 2 Events`]));
+  conv.ask(
+    new LinkOutSuggestion({
+      name: "WTM Ahmedabad",
+      url: "https://www.twitter.com/wtmahmedabad"
+    })
+  );
 });
 
 app.intent("eventIntent", conv => {
