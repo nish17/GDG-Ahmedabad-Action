@@ -26,7 +26,7 @@ app.intent("AboutGDGIntent", conv => {
   // conv.ask(
   //   `<speak> <sub alias="Google Developers Group">GDG</sub> Ahmedabad is open and volunteer geek community who create exciting projects and share experience about Google technologies with a passion.</speak>`
   // );
-  conv.ask(`<speak>Here's the information you asked for</speak>`);
+  conv.ask(`<speak>Here's the information about GDG Ahmedabad</speak>`);
   conv.ask(
     new BasicCard({
       text: `GDG Ahmedabad is open and volunteer geek community who create exciting projects and share experience about Google technologies with a passion`,
@@ -69,12 +69,22 @@ app.intent("AboutGDGIntent", conv => {
 
 app.intent("DevFestIntent", conv => {
   conv.ask(
-    new SimpleResponse({
-      speech: `DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building and learning about Google’s technologies.`,
-      text: `DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building and learning about Google’s technologies`
-    }),
-    new Suggestions([`List of Day 1 Events`, `List of Day 2 Events`])
+    new BasicCard({
+      text: `DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building and learning about Google’s technologies.`,
+      subtitle: "Happens during August 1 — November 30, 2018",
+      title: "About DevFest",
+      buttons: new Button({
+        title: "Visit Website",
+        url: "http://devfest.gdgahmedabad.com/"
+      }),
+      image: new Image({
+        url: "https://avatars1.githubusercontent.com/u/16831892?s=280&v=4",
+        alt: "DevFest Icon"
+      }),
+      display: "CROPPED"
+    })
   );
+  conv.ask(new Suggestions([`List of Day 1 Events`, `List of Day 2 Events`]));
 });
 
 app.intent("eventIntent", conv => {
