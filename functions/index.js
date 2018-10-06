@@ -11,7 +11,7 @@ const {
 } = require("actions-on-google");
 const app = dialogflow({ debug: true });
 const functions = require("firebase-functions");
-// https://www.meetup.com/GDG-Ahmedabad/events/past/
+
 app.intent("New Welcome Intent", conv => {
   conv.ask(
     new SimpleResponse({
@@ -45,10 +45,10 @@ app.intent("AboutGDGIntent", conv => {
   );
 
   conv.ask(
-    new Suggestions([`Past Events`, `Exit`]),
+    new Suggestions([`DevFest 2018`, `Exit`]),
     new LinkOutSuggestion({
-      name: `GDG Abad Website`,
-      url: "https://www.gdgahmedabad.com/"
+      name: `Past Events`,
+      url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
     })
   );
   // /* Issue: not showing in suggestion chips */
