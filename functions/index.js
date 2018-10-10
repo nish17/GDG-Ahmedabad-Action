@@ -11,6 +11,7 @@ const {
 } = require("actions-on-google");
 const app = dialogflow({ debug: true });
 const functions = require("firebase-functions");
+const committeeMembersData = require("./data/aboutMembers.json");
 
 app.intent("New Welcome Intent", conv => {
   conv.ask(
@@ -51,26 +52,6 @@ app.intent("AboutGDGIntent", conv => {
       url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
     })
   );
-  // /* Issue: not showing in suggestion chips */
-  // conv.ask(
-  //   new LinkOutSuggestion({
-  //     name: `Meetup Website`,
-  //     url: "https://www.meetup.com/GDG-Ahmedabad/"
-  //   })
-  // );
-  // conv.ask(
-  //   new LinkOutSuggestion({
-  //     name: `GDG Abad Website`,
-  //     url: "https://www.gdgahmedabad.com/"
-  //   })
-  // );
-  /* Issue: while adding second LinkOutSuggestion it shows error */
-  // conv.ask(
-  //   new LinkOutSuggestion({
-  //     name: "DevFest Website",
-  //     url: "http://devfest.gdgahmedabad.com/"
-  //   })
-  // );
 });
 
 app.intent("DevFestIntent", conv => {
@@ -140,6 +121,35 @@ app.intent("eventIntent", conv => {
   } else {
     conv.close(`<speak>Events will be announced soon</speak>`);
   }
+});
+
+app.intent("gdgCommittee", conv => {
+  const name = conv.body.queryResult.parameters.committeeMembers;
+  const keys = Object.keys(committeeMembersData);
+  keys.forEach(key => {
+    if (key === name) {
+      // console.log(`${key} found`);
+      // console.log(committeeMembersData[`${key}`]["intro"]);
+      conv.ask(`<speak>Here you go.</speak>`);
+      conv.ask(
+        new BasicCard({
+          text: committeeMembersData[`${key}`]["intro"],
+          subtitle: `About`,
+          title: key,
+          buttons: new Button({
+            title: "Visit LinkedIN Profile",
+            url: committeeMembersData[`${key}`]["linkedin"]
+          }),
+          image: new Image({
+            url: committeeMembersData[`${key}`]["image"],
+            alt: "Profile Picture"
+          }),
+          display: "CROPPED"
+        })
+      );
+      // break;
+    }
+  });
 });
 
 // https://firebase.google.com/docs/functions/write-firebase-functions
