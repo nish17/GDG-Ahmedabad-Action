@@ -46,7 +46,7 @@ app.intent("AboutGDGIntent", conv => {
   );
 
   conv.ask(
-    new Suggestions([`DevFest 2018`, `Exit`]),
+    new Suggestions([`meet the team`, `DevFest 2018`, `Exit`]),
     new LinkOutSuggestion({
       name: `Past Events`,
       url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
@@ -150,6 +150,74 @@ app.intent("gdgCommittee", conv => {
       // break;
     }
   });
+  conv.ask(
+    new Suggestions([
+      `Paresh Mayani`,
+      `Dhrumil Shah`,
+      `Chintan Rathod`,
+      `Jaldeep Asodariya`,
+      `Dhurva Shastri`,
+      `Utpal Betai`,
+      `Pratik Patel`
+    ])
+  );
+});
+
+app.intent("getAllMembers", conv => {
+  conv.ask("List of all GDG Ahmedabad Committee Members");
+  conv.ask(
+    new List({
+      title: "Committee Members",
+      items: {
+        PARESH_MAYANI: {
+          synonyms: ["Paresh Mayani", "Paresh Sir", "Mayani Sir"],
+          title: "Paresh Mayani",
+          description: "Founder of GDG Ahmedabad"
+        },
+        DHRUMIL_SHAH: {
+          synonyms: ["Dhrumil Shah", "Dhrumil Sir", "Shah Sir"],
+          title: "Dhrumil Shah",
+          description: "Co-organizer at GDG Ahmedabad"
+        },
+        CHINTAN_RATHOD: {
+          synonyms: ["Chintan Rathod", "Chintan Sir", "Rathod Sir"],
+          title: "Chintan Rathod",
+          description: "Co-organizer at GDG Ahmedabad"
+        },
+        JALDEEP_ASODARIYA: {
+          synonyms: ["Jaldeep Asodariya", "Jaldeep sir", "Asodariya sir"],
+          title: "Jaldeep Asodariya",
+          description: "Co-organizer at GDG Ahmedabad"
+        },
+        DHRUVA_SHASTRI: {
+          synonyms: ["Dhruva Shastri", "Dhruva madam", "Shastri madam"],
+          title: "Dhruva Shastri",
+          description: "Co-organizer at GDG Ahmedabad and leads WTM Ahmedabad"
+        },
+        PRATIK_PATEL: {
+          synonyms: ["Pratik Patel", "Pratik sir", "Patel Sir"],
+          title: "Pratik Patel",
+          description: "Co-organizer at GDG Ahmedabad"
+        },
+        UTPAL_BETAI: {
+          synonyms: ["Utpal Betai", "Utpal sir", "Betai Sir"],
+          title: "Utpal Betai",
+          description: "Assistant organizer at GDG Ahmedabad"
+        }
+      }
+    }),
+    conv.ask(
+      new Suggestions([
+        `Paresh Mayani`,
+        `Dhrumil Shah`,
+        `Chintan Rathod`,
+        `Jaldeep Asodariya`,
+        `Dhurva Shastri`,
+        `Utpal Betai`,
+        `Pratik Patel`
+      ])
+    )
+  );
 });
 
 // https://firebase.google.com/docs/functions/write-firebase-functions
