@@ -48,7 +48,7 @@ app.intent("AboutGDGIntent", conv => {
   conv.ask(
     new Suggestions([`meet the team`, `DevFest 2018`, `Exit`]),
     new LinkOutSuggestion({
-      name: `Past Events`,
+      name: `PastEvents Highlight`,
       url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
     })
   );
@@ -77,6 +77,14 @@ app.intent("DevFestIntent", conv => {
     new LinkOutSuggestion({
       name: `DevFest 2018 Website`,
       url: "http://devfest.gdgahmedabad.com/"
+    }),
+    new LinkOutSuggestion({
+      name: `PastEvents Highlight`,
+      url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
+    }),
+    new LinkOutSuggestion({
+      name: `Navigate to Venue`,
+      url: "https://goo.gl/maps/wcJ3dEjWKQs"
     })
   );
 });
@@ -112,8 +120,9 @@ app.intent("WTMInfo", conv => {
   );
 });
 
-app.intent("eventIntent", conv => {
-  const dayNumber = conv.body.queryResult.parameters.dayNumber;
+app.intent("eventIntent", (conv, params) => {
+  // const dayNumber = conv.body.queryResult.parameters.dayNumber;
+  const dayNumber = params.dayNumber;
   if (dayNumber === "day1") {
     conv.close(`<speak>Events of day 1 will be announced soon</speak>`);
   } else if (dayNumber === "day2") {
@@ -123,14 +132,17 @@ app.intent("eventIntent", conv => {
   }
 });
 
-app.intent("gdgCommittee", conv => {
-  const name = conv.body.queryResult.parameters.committeeMembers;
+app.intent("gdgCommittee", (conv, params) => {
+  // const name = conv.body.queryResult.parameters.committeeMembers;
+  const name = params.committeeMembers;
   const keys = Object.keys(committeeMembersData);
+  let handleNotFound = 1;
   keys.forEach(key => {
     if (key === name) {
+      handleNotFound = 0;
       // console.log(`${key} found`);
       // console.log(committeeMembersData[`${key}`]["intro"]);
-      conv.ask(`<speak>Here you go.</speak>`);
+      conv.ask(`<speak>${name}'s Profile.</speak>`);
       conv.ask(
         new BasicCard({
           text: committeeMembersData[`${key}`]["intro"],
@@ -150,15 +162,20 @@ app.intent("gdgCommittee", conv => {
       // break;
     }
   });
+  if (handleNotFound) {
+    conv.ask(
+      `<speak>I'm Sorry!, Seems like I'll have to update my database soon!</speak>`
+    );
+  }
   conv.ask(
     new Suggestions([
-      `Paresh Mayani`,
-      `Dhrumil Shah`,
-      `Chintan Rathod`,
-      `Jaldeep Asodariya`,
-      `Dhurva Shastri`,
-      `Utpal Betai`,
-      `Pratik Patel`
+      `About Paresh Mayani`,
+      `About Dhrumil Shah`,
+      `About Chintan Rathod`,
+      `About Jaldeep Asodariya`,
+      `About Dhurva Shastri`,
+      `About Utpal Betai`,
+      `About Pratik Patel`
     ])
   );
 });
@@ -172,52 +189,147 @@ app.intent("getAllMembers", conv => {
         PARESH_MAYANI: {
           synonyms: ["Paresh Mayani", "Paresh Sir", "Mayani Sir"],
           title: "Paresh Mayani",
-          description: "Founder of GDG Ahmedabad"
+          description: "Founder of GDG Ahmedabad",
+          image: new Image({
+            url:
+              "https://pbs.twimg.com/profile_images/447806646228488193/52264v-L_400x400.jpeg",
+            alt: "Paresh Mayani's Picture"
+          })
         },
         DHRUMIL_SHAH: {
           synonyms: ["Dhrumil Shah", "Dhrumil Sir", "Shah Sir"],
           title: "Dhrumil Shah",
-          description: "Co-organizer at GDG Ahmedabad"
+          description: "Co-organizer at GDG Ahmedabad",
+          image: new Image({
+            url:
+              "https://pbs.twimg.com/profile_images/654186562230468608/xEBDps3u_400x400.jpg",
+            alt: "Dhrumil Shah's Picture"
+          })
         },
         CHINTAN_RATHOD: {
           synonyms: ["Chintan Rathod", "Chintan Sir", "Rathod Sir"],
           title: "Chintan Rathod",
-          description: "Co-organizer at GDG Ahmedabad"
+          description: "Co-organizer at GDG Ahmedabad",
+          image: new Image({
+            url:
+              "https://pbs.twimg.com/profile_images/987564553536921600/HMQDpWmE_400x400.jpg",
+            alt: "Chintan Rathod's Picture"
+          })
         },
         JALDEEP_ASODARIYA: {
           synonyms: ["Jaldeep Asodariya", "Jaldeep sir", "Asodariya sir"],
           title: "Jaldeep Asodariya",
-          description: "Co-organizer at GDG Ahmedabad"
+          description: "Co-organizer at GDG Ahmedabad",
+          image: new Image({
+            url:
+              "https://pbs.twimg.com/profile_images/898486597175263232/U_9clmww_400x400.jpg",
+            alt: "Jaldeep Asodariya's Picture"
+          })
         },
         DHRUVA_SHASTRI: {
           synonyms: ["Dhruva Shastri", "Dhruva madam", "Shastri madam"],
           title: "Dhruva Shastri",
-          description: "Co-organizer at GDG Ahmedabad and leads WTM Ahmedabad"
+          description: "Co-organizer at GDG Ahmedabad and leads WTM Ahmedabad",
+          image: new Image({
+            url:
+              "https://pbs.twimg.com/profile_images/972084540679241729/XyWmFtij_400x400.jpg",
+            alt: "Dhruva Shastri's Picture"
+          })
         },
         PRATIK_PATEL: {
           synonyms: ["Pratik Patel", "Pratik sir", "Patel Sir"],
           title: "Pratik Patel",
-          description: "Co-organizer at GDG Ahmedabad"
+          description: "Co-organizer at GDG Ahmedabad",
+          image: new Image({
+            url:
+              "https://pbs.twimg.com/profile_images/1011441747073757184/QYXDujoz_400x400.jpg",
+            alt: "Pratik Patel's Picture"
+          })
         },
         UTPAL_BETAI: {
           synonyms: ["Utpal Betai", "Utpal sir", "Betai Sir"],
           title: "Utpal Betai",
-          description: "Assistant organizer at GDG Ahmedabad"
+          description: "Assistant organizer at GDG Ahmedabad",
+          image: new Image({
+            url:
+              "https://pbs.twimg.com/profile_images/886454117534531584/IJh9MqIa_400x400.jpg",
+            alt: "Uptal Betai's Picture"
+          })
         }
       }
     }),
-    conv.ask(
-      new Suggestions([
-        `Paresh Mayani`,
-        `Dhrumil Shah`,
-        `Chintan Rathod`,
-        `Jaldeep Asodariya`,
-        `Dhurva Shastri`,
-        `Utpal Betai`,
-        `Pratik Patel`
-      ])
-    )
+    new Suggestions([
+      `About Paresh Mayani`,
+      `About Dhrumil Shah`,
+      `About Chintan Rathod`,
+      `About Jaldeep Asodariya`,
+      `About Dhurva Shastri`,
+      `About Utpal Betai`,
+      `About Pratik Patel`
+    ])
   );
+});
+
+// const SELECTED_ITEM_RESPONSES = {
+//   [PARESH_MAYANI]: "You've selected PARESH MAYANI",
+//   [DHRUMIL_SHAH]: "You've selected DHRUMIL SHAH",
+//   [CHINTAN_RATHOD]: "You've selected CHINTAN RATHOD",
+//   [JALDEEP_ASODARIYA]: "You've selected JALDEEP ASODARIYA",
+//   [DHRUVA_SHASTRI]: "You've selected DHRUVA SHASTRI",
+//   [PRATIK_PATEL]: "You've selected PRATIK PATEL",
+//   [UTPAL_BETAI]: "You've selected UTPAL BETAI"
+// };
+
+app.intent("EventDates", conv => {
+  conv.ask(
+    new SimpleResponse({
+      speech: `This year GDG Ahmedabad's DevFest is on 25th November 2018 and the venue is Courtyard by Mariott Ahmedabad`,
+      text: `GDG Ahmedabad's DevFest 2018 is on 25th November 2018 and the venue is Courtyard by Mariott Ahmedabad`
+    }),
+    new LinkOutSuggestion({
+      name: `PastEvents Highlight`,
+      url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
+    }),
+    new LinkOutSuggestion({
+      name: `Navigate to Venue`,
+      url: "https://goo.gl/maps/wcJ3dEjWKQs"
+    })
+  );
+});
+
+app.intent("actions.intent.OPTION", (conv, params, option) => {
+  // let response = "You did not select any item";
+  if (option) {
+    // && SELECTED_ITEM_RESPONSES.hasOwnProperty(option)) {
+    // response = SELECTED_ITEM_RESPONSES[option];
+    const name = params.committeeMembers;
+    const keys = Object.keys(committeeMembersData);
+    keys.forEach(key => {
+      if (key === name) {
+        // console.log(`${key} found`);
+        // console.log(committeeMembersData[`${key}`]["intro"]);
+        conv.ask(`<speak>${name}'s Profile.</speak>`);
+        conv.ask(
+          new BasicCard({
+            text: committeeMembersData[`${key}`]["intro"],
+            subtitle: `About`,
+            title: key,
+            buttons: new Button({
+              title: "Visit LinkedIN Profile",
+              url: committeeMembersData[`${key}`]["linkedin"]
+            }),
+            image: new Image({
+              url: committeeMembersData[`${key}`]["image"],
+              alt: "Profile Picture"
+            }),
+            display: "CROPPED"
+          })
+        );
+        // break;
+      }
+    });
+  }
+  // conv.ask(response);
 });
 
 // https://firebase.google.com/docs/functions/write-firebase-functions
