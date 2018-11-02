@@ -46,7 +46,7 @@ app.intent("AboutGDGIntent", conv => {
   );
 
   conv.ask(
-    new Suggestions([`meet the team`, `DevFest 2018`, `Exit`]),
+    new Suggestions([`meet the team`, `DevFest 2018`]),
     new LinkOutSuggestion({
       name: `PastEvents Highlight`,
       url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
@@ -70,18 +70,16 @@ app.intent("DevFestIntent", conv => {
         alt: "DevFest Icon"
       }),
       display: "CROPPED"
-    })
+    }),
+    new Suggestions([`List of Web Events`, `List of Mobile Events`])
   );
+  // conv.ask(
+  //   new LinkOutSuggestion({
+  //     name: `DevFest 2018 Website`,
+  //     url: "http://devfest.gdgahmedabad.com/"
+  //   })
+  // );
   conv.ask(
-    new Suggestions([`List of Day 1 Events`, `List of Day 2 Events`]),
-    new LinkOutSuggestion({
-      name: `DevFest 2018 Website`,
-      url: "http://devfest.gdgahmedabad.com/"
-    }),
-    new LinkOutSuggestion({
-      name: `PastEvents Highlight`,
-      url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
-    }),
     new LinkOutSuggestion({
       name: `Navigate to Venue`,
       url: "https://goo.gl/maps/wcJ3dEjWKQs"
@@ -116,17 +114,17 @@ app.intent("WTMInfo", conv => {
       name: "Twitter: WTM A'bad",
       url: "https://www.twitter.com/wtmahmedabad"
     }),
-    new Suggestions(`Exit`)
+    new Suggestions([`About Dhruva Shastri`, `Exit`])
   );
 });
 
 app.intent("eventIntent", (conv, params) => {
-  // const dayNumber = conv.body.queryResult.parameters.dayNumber;
-  const dayNumber = params.dayNumber;
-  if (dayNumber === "day1") {
-    conv.close(`<speak>Events of day 1 will be announced soon</speak>`);
-  } else if (dayNumber === "day2") {
-    conv.close(`<speak>Events of day 2 will be announced soon</speak>`);
+  // const eventType = conv.body.queryResult.parameters.eventType;
+  const eventType = params.eventType;
+  if (eventType === "MOBILE") {
+    conv.close(`<speak>Events of mobile track will be announced soon</speak>`);
+  } else if (eventType === "WEB") {
+    conv.close(`<speak>Events of web track will be announced soon</speak>`);
   } else {
     conv.close(`<speak>Events will be announced soon</speak>`);
   }
@@ -286,10 +284,11 @@ app.intent("EventDates", conv => {
       speech: `This year GDG Ahmedabad's DevFest is on 25th November 2018 and the venue is Courtyard by Mariott Ahmedabad`,
       text: `GDG Ahmedabad's DevFest 2018 is on 25th November 2018 and the venue is Courtyard by Mariott Ahmedabad`
     }),
-    new LinkOutSuggestion({
-      name: `PastEvents Highlight`,
-      url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
-    }),
+    new Suggestions([
+      `Register for devfest`,
+      `List of Speakers`,
+      `Technologies`
+    ]),
     new LinkOutSuggestion({
       name: `Navigate to Venue`,
       url: "https://goo.gl/maps/wcJ3dEjWKQs"
