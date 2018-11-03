@@ -70,16 +70,15 @@ app.intent("DevFestIntent", conv => {
         alt: "DevFest Icon"
       }),
       display: "CROPPED"
-    }),
-    new Suggestions([`List of Web Events`, `List of Mobile Events`])
+    })
   );
-  // conv.ask(
-  //   new LinkOutSuggestion({
-  //     name: `DevFest 2018 Website`,
-  //     url: "http://devfest.gdgahmedabad.com/"
-  //   })
-  // );
   conv.ask(
+    new Suggestions([
+      `List of Web Events`,
+      `List of Mobile Events`,
+      `Venue`,
+      `Swags`
+    ]),
     new LinkOutSuggestion({
       name: `Navigate to Venue`,
       url: "https://goo.gl/maps/wcJ3dEjWKQs"
@@ -531,6 +530,28 @@ app.intent("GetInfo", (conv, params, option) => {
   // conv.ask(response);
 });
 
+app.intent("VenueIntent", conv => {
+  conv.ask(
+    new SimpleResponse({
+      speech: `This year's GDG ahmedabad's devfest is hosted at Courtyard by Mariott`,
+      text: `This year's GDG ahmedabad's devfest is hosted at Courtyard by Mariott`
+    }),
+    new LinkOutSuggestion({
+      name: `Navigate to Venue`,
+      url: "https://goo.gl/maps/wcJ3dEjWKQs"
+    })
+  );
+});
+
+app.intent("SessionsIntent", conv => {
+  conv.ask(
+    new SimpleResponse({
+      speech: `Which topic are you interested in?`,
+      text: `Which topic are you interested in?`
+    }),
+    new Suggestions([`Mobile Track`, `Web Track`])
+  );
+});
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
