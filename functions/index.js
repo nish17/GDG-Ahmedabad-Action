@@ -268,15 +268,15 @@ app.intent("getAllMembers", conv => {
   );
 });
 
-// const SELECTED_ITEM_RESPONSES = {
-//   [PARESH_MAYANI]: "You've selected PARESH MAYANI",
-//   [DHRUMIL_SHAH]: "You've selected DHRUMIL SHAH",
-//   [CHINTAN_RATHOD]: "You've selected CHINTAN RATHOD",
-//   [JALDEEP_ASODARIYA]: "You've selected JALDEEP ASODARIYA",
-//   [DHRUVA_SHASTRI]: "You've selected DHRUVA SHASTRI",
-//   [PRATIK_PATEL]: "You've selected PRATIK PATEL",
-//   [UTPAL_BETAI]: "You've selected UTPAL BETAI"
-// };
+const SELECTED_ITEM_RESPONSES = {
+  PARESH_MAYANI: "Paresh Mayani",
+  DHRUMIL_SHAH: "Dhrumil Shah",
+  CHINTAN_RATHOD: "Chintan Rathod",
+  JALDEEP_ASODARIYA: "Jaldeep Asodariya",
+  DHRUVA_SHASTRI: "Dhruva Shastri",
+  PRATIK_PATEL: "Pratik Patel",
+  UTPAL_BETAI: "Utpal Betai"
+};
 
 app.intent("EventDates", conv => {
   conv.ask(
@@ -298,10 +298,13 @@ app.intent("EventDates", conv => {
 
 app.intent("actions.intent.OPTION", (conv, params, option) => {
   // let response = "You did not select any item";
-  if (option) {
-    // && SELECTED_ITEM_RESPONSES.hasOwnProperty(option)) {
-    // response = SELECTED_ITEM_RESPONSES[option];
-    const name = params.committeeMembers;
+  console.log(`$$$$$`);
+  console.log(SELECTED_ITEM_RESPONSES.hasOwnProperty(option));
+  console.log(option);
+  console.log(SELECTED_ITEM_RESPONSES[option]);
+  if (option && SELECTED_ITEM_RESPONSES.hasOwnProperty(option)) {
+    response = SELECTED_ITEM_RESPONSES[option];
+    const name = SELECTED_ITEM_RESPONSES[option];
     const keys = Object.keys(committeeMembersData);
     keys.forEach(key => {
       if (key === name) {
