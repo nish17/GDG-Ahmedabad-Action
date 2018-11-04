@@ -552,6 +552,20 @@ app.intent("SessionsIntent", conv => {
     new Suggestions([`Mobile Track`, `Web Track`])
   );
 });
+
+app.intent("OrganizerIntent", conv => {
+  conv.ask(
+    new SimpleResponse({
+      speech: `GDG Ahmedabad will host the event and GDG ahmedabad along with WTM ahmedabad will organize this year's devfest`,
+      text: `GDG Ahmedabad will host the event and GDG ahmedabad along with WTM ahmedabad will organize this year's devfest`
+    }),
+    new Suggestions([`Venue`, `Swag this year`, `Browse talks`]),
+    new LinkOutSuggestion({
+      name: `Navigate to Venue`,
+      url: "https://goo.gl/maps/wcJ3dEjWKQs"
+    })
+  );
+});
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
