@@ -543,6 +543,20 @@ app.intent("VenueIntent", conv => {
   );
 });
 
+app.intent("SwagIntent", conv => {
+  conv.ask(
+    new SimpleResponse({
+      speech: `Attendees this year will get DevFest Tshirt and a badge`,
+      text: `Attendees this year will get DevFest Tshirt and a badge`
+    }),
+    new SimpleResponse({
+      speech: `Now you can ask me anything else you want to know about Devfest`,
+      text: `Now you can ask me anything else you want to know about Devfest`
+    }),
+    new Suggestions([`Search for talks`, `Venue`, `Register for DevFest`])
+  );
+});
+
 app.intent("SessionsIntent", conv => {
   conv.ask(
     new SimpleResponse({
