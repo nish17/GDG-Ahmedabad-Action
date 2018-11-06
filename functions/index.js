@@ -13,6 +13,52 @@ const app = dialogflow({ debug: true });
 const functions = require("firebase-functions");
 const committeeMembersData = require("./data/aboutMembers.json");
 
+const { google } = require("googleapis");
+const key = require("./data/gdg-ahmedabad-devfest-a2262e8f1dee.json");
+
+let jwtClient = new google.auth.JWT(
+  key.client_email,
+  null,
+  key.private_key,
+  ["https://www.googleapis.com/auth/actions.fulfillment.conversation"],
+  null
+);
+
+jwtClient.authorize((err, tokens) => {
+  // code to retrieve target userId and intent
+  if (err) {
+    console.log(`Something went wrong ${err}`);
+  }
+  let notif = {
+    userNotification: {
+      title: "DevFest 2k18 Events Update"
+    },
+    target: {
+      userId: "<USER_ID>",
+      intent: "<INTENT>",
+      // Expects a IETF BCP-47 language code (i.e. en-US)
+      locale: "en-US"
+    }
+  };
+
+  request.post(
+    "https://actions.googleapis.com/v2/conversations:send",
+    {
+      auth: {
+        bearer: tokens.access_token
+      },
+      json: true,
+      body: { customPushMessage: notif }
+    },
+    (err, httpResponse, body) => {
+      if (!err)
+        console.log(
+          httpResponse.statusCode + ": " + httpResponse.statusMessage
+        );
+    }
+  );
+});
+
 app.intent("New Welcome Intent", conv => {
   conv.ask(
     new SimpleResponse({
@@ -121,11 +167,29 @@ app.intent("eventIntent", (conv, params) => {
   // const eventType = conv.body.queryResult.parameters.eventType;
   const eventType = params.eventType;
   if (eventType === "MOBILE") {
-    conv.close(`<speak>Events of mobile track will be announced soon</speak>`);
+    conv.ask(`<speak>Events of mobile track will be announced soon</speak>`);
+    conv.ask(new Suggestions(`send me talk updates`));
   } else if (eventType === "WEB") {
-    conv.close(`<speak>Events of web track will be announced soon</speak>`);
+    conv.ask(`<speak>Events of web track will be announced soon</speak>`);
+    conv.ask(new Suggestions(`send me talk updates`));
   } else {
-    conv.close(`<speak>Events will be announced soon</speak>`);
+    conv.ask(`<speak>Events will be announced soon</speak>`);
+    conv.ask(new Suggestions(`send me talk updates`));
+  }
+});
+
+app.intent("event_notification_setup_push", conv => {
+  conv.ask(new UpdatePermission({ intent: "eventIntent" }));
+});
+
+app.intent("FinishEventSetupPush", (conv, params) => {
+  if (conv.arguments.get("PERMISSION")) {
+    //const userID = conv.user.id;
+    const userID = conv.arguments.get("UPDATES_USER_ID");
+    // code to save intent and userID in your db
+    conv.close(`Ok, I'll start alerting you.`);
+  } else {
+    conv.close(`Ok, I won't alert you.`);
   }
 });
 
@@ -581,5 +645,21 @@ app.intent("OrganizerIntent", conv => {
   );
 });
 // https://firebase.google.com/docs/functions/write-firebase-functions
+
+// app.fallback(conv => {
+//   // intent contains the name of the intent
+//   // you defined in the Intents area of Dialogflow
+//   const intent = conv.intent;
+//   switch (intent) {
+//     case WELCOME_INTENT:
+//       conv.ask("Welcome! Say a number.");
+//       break;
+
+//     case NUMBER_INTENT:
+//       const num = conv.arguments.get(NUMBER_ARGUMENT);
+//       conv.close(`You said ${num}`);
+//       break;
+//   }
+// });
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
