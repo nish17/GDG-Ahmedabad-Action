@@ -658,21 +658,16 @@ app.intent("SpeakersIntent", conv => {
     const value = data[1];
     result.items[`${key}`] = {
       synonyms: [`${key}`, `${value.intro}`],
-      title: `${value.type}: ${value.topic}`,
-      description: `By ${key}, ${value.intro}`,
+      title: `${value.type}: ${value.topic} By ${key}`,
+      description: `${key}, ${value.intro}`,
       image: new Image({
         url: `${value.image}`,
         alt: `${key}'s Picture`
       })
     };
   }
-  conv.ask(
-    new SimpleResponse({
-      speech: "Here are the Speakers of Devfest 2018",
-      text: "Here are the Speakers of Devfest 2018"
-    }),
-    new List({ result })
-  );
+  conv.ask("<speak>Here are the Speakers of Devfest 2018</speak>");
+  conv.ask(new List(result));
 });
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
