@@ -12,6 +12,7 @@ const {
 const app = dialogflow({ debug: true });
 const functions = require("firebase-functions");
 const committeeMembersData = require("./data/aboutMembers.json");
+const Speakers = require("./data/Speakers.json");
 
 const { google } = require("googleapis");
 const key = require("./data/gdg-ahmedabad-devfest-a2262e8f1dee.json");
@@ -123,7 +124,8 @@ app.intent("DevFestIntent", conv => {
       `List of Web Events`,
       `List of Mobile Events`,
       `Venue`,
-      `Swags`
+      `Swags`,
+      `Speakers of DevFest 2018`
     ]),
     new LinkOutSuggestion({
       name: `Navigate to Venue`,
@@ -642,6 +644,34 @@ app.intent("OrganizerIntent", conv => {
       name: `Navigate to Venue`,
       url: "https://goo.gl/maps/wcJ3dEjWKQs"
     })
+  );
+});
+
+app.intent("SpeakersIntent", conv => {
+  const result = {
+    title: `List of Speakers`,
+    items: {}
+  };
+  const dataArray = Object.entries(Speakers);
+  for (const data of dataArray) {
+    const key = data[0];
+    const value = data[1];
+    result.items[`${key}`] = {
+      synonyms: [`${key}`, `${value.intro}`],
+      title: `${value.type}: ${value.topic}`,
+      description: `By ${key}, ${value.intro}`,
+      image: new Image({
+        url: `${value.image}`,
+        alt: `${key}'s Picture`
+      })
+    };
+  }
+  conv.ask(
+    new SimpleResponse({
+      speech: "Here are the Speakers of Devfest 2018",
+      text: "Here are the Speakers of Devfest 2018"
+    }),
+    new List({ result })
   );
 });
 // https://firebase.google.com/docs/functions/write-firebase-functions

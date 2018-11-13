@@ -1,0 +1,62 @@
+{
+  "Parth Jansari": {
+    "intro": "Freelancer",
+    "type": "CodeLab",
+    "topic": "Flutter",
+    "image": "https://pbs.twimg.com/profile_images/1053287322890850310/XICr3aoR_400x400.jpg"
+  },
+  "Bharat Makwana": {
+    "intro": "Application Developer at MultiDots Solutions",
+    "type": "CodeLab",
+    "topic": "Flutter",
+    "image": "https://pbs.twimg.com/profile_images/955003483580596224/zusVTbmB_400x400.jpg"
+  },
+  "Burhanuddin Rashid": {
+    "intro": "Application Developer at Technogise",
+    "type": "Lecture",
+    "topic": "How to build Reactive Architecture for Flutter",
+    "image": "https://pbs.twimg.com/profile_images/964912367187451909/_2NQ6r6-_400x400.jpg"
+  },
+  "Krupa Galiya": {
+    "intro": "IT engineering Student ",
+    "type": "CodeLab",
+    "topic": "Machine Learning",
+    "image": "https://pbs.twimg.com/profile_images/922776427686117377/Uljs80-R_400x400.jpg"
+  },
+  "Charmi Chokshi": {
+    "intro": "ICT engineering Student ",
+    "type": "CodeLab",
+    "topic": "Machine Learning",
+    "image": "https://pbs.twimg.com/profile_images/1051334493175345152/CywdQjIk_400x400.jpg"
+  },
+  "Rivu Chakrborty": {
+    "intro": "Senior Software Engineer at BYJU'S",
+    "type": "Lecture",
+    "topic": "Efficient Async with Kotlin Coroutines",
+    "image": "https://pbs.twimg.com/profile_images/834132656849829888/f0ZhPb-i_400x400.jpg"
+  },
+  "Aimanzaki Kagzi": {
+    "intro": "Software Engineer at AimCrafters",
+    "type": "Lecture",
+    "topic": "New way of doing things in Android",
+    "image": "https://pbs.twimg.com/profile_images/511854005102714880/dzK5Dgd8_400x400.jpeg"
+  },
+  "Hiren Dave": {
+    "intro": "Self Employed Consultant",
+    "type": "Lecture",
+    "topic": "Exploring Firebase MLKit on Android",
+    "image": "https://pbs.twimg.com/profile_images/1016565345467883526/_wPcpBBy_400x400.jpg"
+  },
+  "Smit Shah": {
+    "intro": "Co-founder & CEO at eSecurify Technologies",
+    "type": "Lecture",
+    "topic": "Android Application Security Testing",
+    "image": "https://pbs.twimg.com/profile_images/791542726734983168/RB_Dbo_Y_400x400.jpg"
+  },
+  "Dhruv Patel": {
+    "intro": "Senior Software Engineer at Reliance Jio",
+    "type": "Lecture",
+    "topic": "New way of doing things in Android",
+    "image": "https://pbs.twimg.com/profile_images/791542726734983168/RB_Dbo_Y_400x400.jpg"
+  }
+}
