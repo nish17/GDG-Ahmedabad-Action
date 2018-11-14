@@ -40,14 +40,15 @@ const result = {
 for (const data of dataArray) {
   const key = data[0];
   const value = data[1];
-  result.items[`${key}`] = {
-    synonyms: [`${key}`, `${value.intro}`],
-    title: `${value.type}: ${value.topic}`,
-    description: `By ${key}, ${value.intro}`
-    // image: new Image({
-    //   url: `${value.image}`,
-    //   alt: `${key}'s Picture`
-    // })
-  };
+  if (value.gender === "Female")
+    result.items[`${key}`] = {
+      synonyms: [`${key}`, `${value.intro}`],
+      title: `${value.type}: ${value.topic}`,
+      description: `By ${key}, ${value.intro}`
+      // image: new Image({
+      //   url: `${value.image}`,
+      //   alt: `${key}'s Picture`
+      // })
+    };
 }
 console.log(result);
