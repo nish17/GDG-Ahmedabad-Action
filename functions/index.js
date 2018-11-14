@@ -123,8 +123,10 @@ app.intent("DevFestIntent", conv => {
     new Suggestions([
       `List of Web Events`,
       `List of Mobile Events`,
+      `List of CodeLabs`,
       `Venue`,
       `Swags`,
+      `Women Speakers`,
       `Speakers of DevFest 2018`
     ]),
     new LinkOutSuggestion({
@@ -173,6 +175,9 @@ app.intent("eventIntent", (conv, params) => {
     conv.ask(new Suggestions(`send me talk updates`));
   } else if (eventType === "WEB") {
     conv.ask(`<speak>Events of web track will be announced soon</speak>`);
+    conv.ask(new Suggestions(`send me talk updates`));
+  } else if (eventType === "CODELAB") {
+    conv.ask(`<speak>Events of CodeLabs will be announced soon</speak>`);
     conv.ask(new Suggestions(`send me talk updates`));
   } else {
     conv.ask(`<speak>Events will be announced soon</speak>`);
@@ -667,8 +672,33 @@ app.intent("SpeakersIntent", conv => {
     };
   }
   conv.ask("<speak>Here are the Speakers of Devfest 2018</speak>");
-  conv.ask(new List(result));
+  conv.ask(new List(result), new Suggestions(`Women Speakers`));
 });
+
+app.intent("WomenInTech", conv => {
+  const result = {
+    title: `List of Women Speakers`,
+    items: {}
+  };
+  const dataArray = Object.entries(Speakers);
+  for (const data of dataArray) {
+    const key = data[0];
+    const value = data[1];
+    if (value.gender === "Female")
+      result.items[`${key}`] = {
+        synonyms: [`${key}`, `${value.intro}`],
+        title: `${value.type}: ${value.topic} By ${key}`,
+        description: `${key}, ${value.intro}`,
+        image: new Image({
+          url: `${value.image}`,
+          alt: `${key}'s Picture`
+        })
+      };
+  }
+  conv.ask("<speak>Here are the Women Speakers of Devfest 2018</speak>");
+  conv.ask(new List(result), new Suggestions(`All Speakers`));
+});
+
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 // app.fallback(conv => {
