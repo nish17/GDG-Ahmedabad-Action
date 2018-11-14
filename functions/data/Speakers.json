@@ -6,6 +6,13 @@
     "topic": "Flutter",
     "image": "https://pbs.twimg.com/profile_images/1053287322890850310/XICr3aoR_400x400.jpg"
   },
+  "Neha Sharama": {
+    "intro": "Front End Architect",
+    "gender": "Female",
+    "type": "Lecture",
+    "topic": "Web for all - Accessibility",
+    "image": "https://pbs.twimg.com/profile_images/761985373023170560/Pv4Njhvt_400x400.jpg"
+  },
   "Bharat Makwana": {
     "intro": "Application Developer at MultiDots Solutions",
     "gender": "Male",
@@ -68,5 +75,12 @@
     "type": "Lecture",
     "topic": "New way of doing things in Android",
     "image": "https://pbs.twimg.com/profile_images/959011863982784512/WHvUcKzd_400x400.jpg"
+  },
+  "Mohammad Shahbaz Alam": {
+    "intro": "Auth0, Developer Evangelist",
+    "gender": "Male",
+    "type": "Lecture",
+    "topic": "Severless API creation and deployment using Google Cloud",
+    "image": "https://pbs.twimg.com/profile_images/1039175849520447490/D-WmSA6__400x400.jpg"
   }
 }
