@@ -282,7 +282,7 @@ app.intent("getAllMembers", conv => {
         JALDEEP_ASODARIYA: {
           synonyms: ["Jaldeep Asodariya", "Jaldeep sir", "Asodariya sir"],
           title: "Jaldeep Asodariya",
-          description: "Co-organizer at GDG Ahmedabad",
+          description: "Core organizer at GDG Ahmedabad",
           image: new Image({
             url:
               "https://pbs.twimg.com/profile_images/898486597175263232/U_9clmww_400x400.jpg",
@@ -292,7 +292,7 @@ app.intent("getAllMembers", conv => {
         DHRUVA_SHASTRI: {
           synonyms: ["Dhruva Shastri", "Dhruva madam", "Shastri madam"],
           title: "Dhruva Shastri",
-          description: "Co-organizer at GDG Ahmedabad and leads WTM Ahmedabad",
+          description: "Leads WTM Ahmedabad",
           image: new Image({
             url:
               "https://pbs.twimg.com/profile_images/972084540679241729/XyWmFtij_400x400.jpg",
