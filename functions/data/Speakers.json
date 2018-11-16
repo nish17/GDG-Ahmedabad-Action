@@ -124,5 +124,33 @@
     "type": "",
     "topic": "",
     "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fcore-team%2Futpal_betai.png?alt=media&token=9aea40f8-f9b9-4e07-a3d9-345af53830e7"
+  },
+  "Biswajeet Malik": {
+    "intro": "Lead for DevRel Communities Programs at Google India",
+    "gender": "Male",
+    "type": "",
+    "topic": "",
+    "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fspeakers%2Fbiswajeet_malik.jpg?alt=media&token=d4965775-8561-42c5-9c79-85f5ca7f11bb"
+  },
+  "Karthik Padmanabhan": {
+    "intro": "Developer Relations Program Lead at Google India",
+    "gender": "Male",
+    "type": "",
+    "topic": "",
+    "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fspeakers%2Fkarthik_padmanabhan.jpg?alt=media&token=cc6275c7-a182-471a-9b39-4af99adc0250"
+  },
+  "Paresh Mayani": {
+    "intro": "",
+    "gender": "Male",
+    "type": "",
+    "topic": "",
+    "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fcore-team%2Fparesh_mayani.jpg?alt=media&token=c385c8e4-0803-4459-a444-cb0591570bb4"
+  },
+  "Dhrumil Shah": {
+    "intro": "Mobile Developer at Shipments",
+    "gender": "Male",
+    "type": "",
+    "topic": "",
+    "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fcore-team%2Fdhrumil_shah.png?alt=media&token=ace67ade-7dca-447d-81a2-8155c3345468"
   }
 }
