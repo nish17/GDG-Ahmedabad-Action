@@ -13,6 +13,9 @@ const app = dialogflow({ debug: true });
 const functions = require("firebase-functions");
 const committeeMembersData = require("./data/aboutMembers.json");
 const Speakers = require("./data/Speakers.json");
+const Mobile = require("./data/mobile.json");
+const Web = require("./data/web.json");
+const CodeLab = require("./data/codeLab.json");
 
 const { google } = require("googleapis");
 const key = require("./data/gdg-ahmedabad-devfest-a2262e8f1dee.json");
@@ -169,19 +172,60 @@ app.intent("WTMInfo", conv => {
 
 app.intent("eventIntent", (conv, params) => {
   // const eventType = conv.body.queryResult.parameters.eventType;
+  const result = {
+    title: ``,
+    items: {}
+  };
   const eventType = params.eventType;
+  result.title = `${eventType}`;
   if (eventType === "MOBILE") {
-    conv.ask(`<speak>Events of mobile track will be announced soon</speak>`);
-    conv.ask(new Suggestions(`send me talk updates`));
+    const dataArray = Object.entries(Mobile);
+    for (const data of dataArray) {
+      const key = data[0];
+      const value = data[1];
+      result.items[`${value.title} ${key}`] = {
+        synonyms: [`${value.title}, ${value.time}`],
+        title: `At ${value.time}: ${value.title}`,
+        description: `${value.speaker} Duration:${value.duration}`
+      };
+    }
+    conv.ask(`<speak>Events of Mobile Track </speak>`);
+    conv.ask(
+      new List(result),
+      new Suggestions([`web track`, `CodeLab schedule`])
+    );
+    // conv.ask(new Suggestions(`send me talk updates`));
   } else if (eventType === "WEB") {
-    conv.ask(`<speak>Events of web track will be announced soon</speak>`);
-    conv.ask(new Suggestions(`send me talk updates`));
+    const dataArray = Object.entries(Web);
+    for (const data of dataArray) {
+      const key = data[0];
+      const value = data[1];
+      result.items[`${value.title} ${key}`] = {
+        synonyms: [`${value.title}, ${value.time}`],
+        title: `At ${value.time}: ${value.title}`,
+        description: `${value.speaker} Duration:${value.duration}`
+      };
+    }
+    conv.ask(`<speak>Events of Web track</speak>`);
+    conv.ask(
+      new List(result),
+      new Suggestions([`mobile track`, `CodeLab schedule`])
+    );
+    // conv.ask(new Suggestions(`send me talk updates`));
   } else if (eventType === "CODELAB") {
-    conv.ask(`<speak>Events of CodeLabs will be announced soon</speak>`);
-    conv.ask(new Suggestions(`send me talk updates`));
-  } else {
-    conv.ask(`<speak>Events will be announced soon</speak>`);
-    conv.ask(new Suggestions(`send me talk updates`));
+    const dataArray = Object.entries(CodeLab);
+    for (const data of dataArray) {
+      const key = data[0];
+      const value = data[1];
+      result.items[`${value.title} ${key}`] = {
+        synonyms: [`${value.title}, ${value.time}`],
+        title: `At ${value.time}: ${value.title}`,
+        description: `${value.speaker} Duration:${value.duration}`
+      };
+    }
+    conv.ask(`<speak>CodeLabs Schedule</speak>`);
+    conv.ask(new List(result), new Suggestions([`mobile track`, `web track`]));
+    // conv.ask(new Suggestions(`send me talk updates`));
   }
 });
 
