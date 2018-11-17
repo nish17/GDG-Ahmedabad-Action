@@ -186,7 +186,9 @@ app.intent("eventIntent", (conv, params) => {
       result.items[`${value.title} ${key}`] = {
         synonyms: [`${value.title}, ${value.time}`],
         title: `At ${value.time}: ${value.title}`,
-        description: `${value.speaker} Duration:${value.duration}`
+        description: `${value.speaker ? value.speaker + "," : ""} Duration:${
+          value.duration
+        }`
       };
     }
     conv.ask(`<speak>Events of Mobile Track </speak>`);
@@ -203,7 +205,9 @@ app.intent("eventIntent", (conv, params) => {
       result.items[`${value.title} ${key}`] = {
         synonyms: [`${value.title}, ${value.time}`],
         title: `At ${value.time}: ${value.title}`,
-        description: `${value.speaker} Duration:${value.duration}`
+        description: `${value.speaker ? value.speaker + "," : ""} Duration:${
+          value.duration
+        }`
       };
     }
     conv.ask(`<speak>Events of Web track</speak>`);
@@ -220,7 +224,9 @@ app.intent("eventIntent", (conv, params) => {
       result.items[`${value.title} ${key}`] = {
         synonyms: [`${value.title}, ${value.time}`],
         title: `At ${value.time}: ${value.title}`,
-        description: `${value.speaker} Duration:${value.duration}`
+        description: `${value.speaker ? value.speaker + "," : ""} Duration:${
+          value.duration
+        }`
       };
     }
     conv.ask(`<speak>CodeLabs Schedule</speak>`);
