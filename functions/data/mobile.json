@@ -1,61 +1,61 @@
 {
-  "01": {
+  "1": {
     "time": "09:00",
     "title": "Registration and morning Coffee",
     "duration": "30 mins",
     "speaker": "",
     "image": "https://cdn.dribbble.com/users/1407587/screenshots/3019807/gdgkl_coffee_meetup_dribbble.png"
   },
-  "02": {
+  "2": {
     "time": "09:30",
     "title": "GDG DevFest Ahmedabad 2018 Opening",
     "duration": "15 mins",
     "speaker": "Paresh Mayani and Dhrumil Shah",
     "image": ""
   },
-  "03": {
+  "3": {
     "time": "09:45",
     "title": "Keynote 1",
     "duration": "45 mins",
     "speaker": "Utpal Betai",
     "image": ""
   },
-  "04": {
+  "4": {
     "time": "10:30",
     "title": "Keynote 2 - Google Cloud and Machine Learning",
     "duration": "30 mins",
     "speaker": "Karthik Padmanabhan",
     "image": ""
   },
-  "05": {
+  "5": {
     "time": "11:15",
     "title": "New way of doing things in Android",
     "duration": "1 hour",
     "speaker": "Aimanzaki Kagzi and Dhruv Patel",
     "image": ""
   },
-  "06": {
+  "6": {
     "time": "12:15",
     "title": "Efficient Async with Kotlin Coroutines",
     "duratiom": "1 hour",
     "speaker": "Rivu Chakrborty",
     "image": ""
   },
-  "07": {
+  "7": {
     "time": "13:15",
     "title": "Lunch Break",
     "duration": "1 hour 15 mins",
     "speaker": "",
     "image": ""
   },
-  "08": {
+  "8": {
     "time": "14:30",
     "title": "Exploring Firebase MLkit on Android",
     "duration": "1 hour",
     "speaker": "Hiren Dave",
     "image": ""
   },
-  "09": {
+  "9": {
     "time": "15:30",
     "title": "Android Application Security Testing",
     "duration": "1 hour",

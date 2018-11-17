@@ -1,53 +1,53 @@
 {
-  "01": {
+  "1": {
     "time": "09:00",
     "title": "Registration and morning Coffee",
     "duration": "30 mins",
     "speaker": ""
   },
-  "02": {
+  "2": {
     "time": "09:30",
     "title": "GDG DevFest Ahmedabad 2018 Opening",
     "duration": "15 mins",
     "speaker": "Paresh Mayani and Dhrumil Shah"
   },
-  "03": {
+  "3": {
     "time": "09:45",
     "title": "Keynote 1",
     "duration": "45 mins",
     "speaker": "Utpal Betai"
   },
-  "04": {
+  "4": {
     "time": "10:30",
     "title": "Keynote 2 - Google Cloud and Machine Learning",
     "duration": "30 mins",
     "speaker": "Karthik Padmanabhan"
   },
-  "05": {
+  "5": {
     "time": "11:15",
     "title": "Web for all - Accessibility",
     "duration": "1 hour",
     "speaker": "Neha Sharma"
   },
-  "06": {
+  "6": {
     "time": "12:15",
     "title": "A discussion on design and fairness in the world of ML",
-    "duratiom": "1 hour",
+    "duration": "1 hour",
     "speaker": "Biswajeet Mallik"
   },
-  "07": {
+  "7": {
     "time": "13:15",
     "title": "Lunch Break",
     "duration": "1 hour 15 mins",
     "speaker": ""
   },
-  "08": {
+  "8": {
     "time": "14:30",
     "title": "Serverless API creation and deployment using Google Cloud",
     "duration": "1 hour",
     "speaker": "Mohammad Shahbaz Alam"
   },
-  "09": {
+  "9": {
     "time": "15:30",
     "title": "Lighthouse for Chrome: Find your way to faster Web Apps",
     "duration": "1 hour",
