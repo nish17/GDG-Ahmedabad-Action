@@ -3,60 +3,70 @@
     "time": "09:00",
     "title": "Registration and morning Coffee",
     "duration": "30 mins",
-    "speaker": ""
+    "speaker": "",
+    "image": ""
   },
   "02": {
     "time": "09:30",
     "title": "GDG DevFest Ahmedabad 2018 Opening",
     "duration": "15 mins",
-    "speaker": "Paresh Mayani and Dhrumil Shah"
+    "speaker": "Paresh Mayani and Dhrumil Shah",
+    "image": ""
   },
   "03": {
     "time": "09:45",
     "title": "Keynote 1",
     "duration": "45 mins",
-    "speaker": "Utpal Betai"
+    "speaker": "Utpal Betai",
+    "image": ""
   },
   "04": {
     "time": "10:30",
     "title": "Keynote 2 - Google Cloud and Machine Learning",
     "duration": "30 mins",
-    "speaker": "Karthik Padmanabhan"
+    "speaker": "Karthik Padmanabhan",
+    "image": ""
   },
   "05": {
     "time": "11:15",
     "title": "CodeLab - Machine Learning",
     "duration": "2 hours",
-    "speaker": "Krupa Galiya and Charmi Chokshi"
+    "speaker": "Krupa Galiya and Charmi Chokshi",
+    "image": ""
   },
   "06": {
     "time": "13:15",
     "title": "Lunch Break",
     "duration": "1 hour 15 mins",
-    "speaker": ""
+    "speaker": "",
+    "image": ""
   },
   "07": {
     "time": "14:30",
     "title": "CodeLab - Flutter",
     "duration": "2 hours",
-    "speaker": "Parth Jansari, Bhavik Makwana and Dhrumil Shah"
+    "speaker": "Parth Jansari, Bhavik Makwana and Dhrumil Shah",
+    "image": ""
   },
   "08": {
     "time": "16:30",
     "title": "Coffee break",
     "duration": "15 mins",
-    "speaker": ""
+    "speaker": "",
+    "image": ""
   },
   "09": {
     "time": "16:45",
     "title": "CodeLab - Actions on Google",
     "duration": "1 hour 45 mins",
-    "speaker": "Jaldeep Asodariya, Juhil Somaiya and Nimesh Solanki"
+    "speaker": "Jaldeep Asodariya, Juhil Somaiya and Nimesh Solanki",
+    "image": ""
   },
   "10": {
     "time": "18:30",
     "title": "Ending Notes",
     "duration": "30 mins",
-    "speaker": ""
+    "speaker": "",
+    "image": ""
   }
 }
