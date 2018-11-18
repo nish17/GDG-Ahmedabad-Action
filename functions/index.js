@@ -96,7 +96,7 @@ app.intent("AboutGDGIntent", conv => {
   );
 
   conv.ask(
-    new Suggestions([`meet the team`, `DevFest 2018`]),
+    new Suggestions([`meet the team`, `DevFest 2018`, `contribute`]),
     new LinkOutSuggestion({
       name: `PastEvents Highlight`,
       url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
@@ -747,6 +747,32 @@ app.intent("WomenInTech", conv => {
   }
   conv.ask("<speak>Here are the Women Speakers of Devfest 2018</speak>");
   conv.ask(new List(result), new Suggestions(`All Speakers`));
+});
+
+app.intent("ContributeIntent", conv => {
+  conv.ask(
+    new BasicCard({
+      text: `GDG Ahmedabad is open and volunteer geek community who create exciting projects and share experience about Google technologies with a passion`,
+      subtitle: "Founded and Organized by Paresh Mayani",
+      title: "Contribute to GDG Ahmedabad",
+      buttons: new Button({
+        title: "Visit Website",
+        url: "https://github.com/GDGAhmedabad"
+      }),
+      image: new Image({
+        url: "https://avatars1.githubusercontent.com/u/16831892?s=280&v=4",
+        alt: "GDG Ahmedabad Icon"
+      }),
+      display: "CROPPED"
+    })
+  );
+  conv.ask(
+    new Suggestions([`meet the team`, `DevFest 2018`]),
+    new LinkOutSuggestion({
+      name: `PastEvents Highlight`,
+      url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
+    })
+  );
 });
 
 // https://firebase.google.com/docs/functions/write-firebase-functions
