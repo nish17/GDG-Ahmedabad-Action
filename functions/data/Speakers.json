@@ -2,35 +2,35 @@
   "Karthik Padmanabhan": {
     "intro": "Developer Relations Program Lead at Google India",
     "gender": "Male",
-    "type": "",
-    "topic": "",
+    "type": "Keynote-2",
+    "topic": "Google Cloud, Machine Learning",
     "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fspeakers%2Fkarthik_padmanabhan.jpg?alt=media&token=cc6275c7-a182-471a-9b39-4af99adc0250"
   },
   "Biswajeet Malik": {
     "intro": "Lead for DevRel Communities Programs at Google India",
     "gender": "Male",
-    "type": "",
+    "type": "Lecture",
     "topic": "A discussion on design and fairness in the world of ML",
     "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fspeakers%2Fbiswajeet_malik.jpg?alt=media&token=d4965775-8561-42c5-9c79-85f5ca7f11bb"
   },
   "Paresh Mayani": {
-    "intro": "",
+    "intro": "Android Tech Lead at Simform Solution",
     "gender": "Male",
-    "type": "",
-    "topic": "",
+    "type": "Lecture",
+    "topic": "GDG Devfest Ahmedabad 2018 Opening",
     "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fcore-team%2Fparesh_mayani.jpg?alt=media&token=c385c8e4-0803-4459-a444-cb0591570bb4"
   },
   "Dhrumil Shah": {
     "intro": "Mobile Developer at Shipments",
     "gender": "Male",
-    "type": "",
-    "topic": "",
+    "type": "CodeLab",
+    "topic": "Flutter",
     "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fcore-team%2Fdhrumil_shah.png?alt=media&token=ace67ade-7dca-447d-81a2-8155c3345468"
   },
   "Utpal Betai": {
     "intro": "Senior Project Manager at SoluLab",
     "gender": "Male",
-    "type": "",
+    "type": "Keynote-1",
     "topic": "",
     "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fcore-team%2Futpal_betai.png?alt=media&token=9aea40f8-f9b9-4e07-a3d9-345af53830e7"
   },
@@ -86,8 +86,8 @@
   "Jaldeep Asodariya": {
     "intro": "Android Developer at Jain Bhavesh Solutions",
     "gender": "Male",
-    "type": "Lecture",
-    "topic": "",
+    "type": "CodeLab",
+    "topic": "Actions on Google",
     "image": "https://pbs.twimg.com/profile_images/898486597175263232/U_9clmww_400x400.jpg"
   },
   "Aimanzaki Kagzi": {
@@ -114,8 +114,8 @@
   "Shubham Pachori": {
     "intro": "Product Manager at Shipmnts",
     "gender": "Male",
-    "type": "",
-    "topic": "",
+    "type": "Lecture",
+    "topic": "Designing addictive Web Apps",
     "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fspeakers%2Fshubham_pachori.jpg?alt=media&token=aba4d75d-0096-4e0c-a511-16ca9d3d9f60"
   },
   "Mohammad Shahbaz Alam": {
@@ -149,8 +149,8 @@
   "Anil Sahu": {
     "intro": "Engineering Lead at Codal",
     "gender": "Male",
-    "type": "",
-    "topic": "",
+    "type": "Lecture",
+    "topic": "Lighthouse for Chrome: Find your way to Faster Web Apps",
     "image": "https://firebasestorage.googleapis.com/v0/b/devfestahm-develop.appspot.com/o/images%2Fpeople%2Fspeakers%2Fanil_shahu.jpeg?alt=media&token=07b161c8-6daa-4ebc-baf4-f78bc3c1be80"
   }
 }
