@@ -404,11 +404,7 @@ app.intent("EventDates", conv => {
       speech: `This year GDG Ahmedabad's DevFest is on 25th November 2018 and the venue is Courtyard by Mariott Ahmedabad`,
       text: `GDG Ahmedabad's DevFest 2018 is on 25th November 2018 and the venue is Courtyard by Mariott Ahmedabad`
     }),
-    new Suggestions([
-      `Register for devfest`,
-      `List of Speakers`,
-      `Technologies`
-    ]),
+    new Suggestions([`List of Speakers`, `Technologies`]),
     new LinkOutSuggestion({
       name: `Navigate to Venue`,
       url: "https://goo.gl/maps/wcJ3dEjWKQs"
@@ -657,6 +653,11 @@ app.intent("VenueIntent", conv => {
       speech: `This year's GDG ahmedabad's devfest is hosted at Courtyard by Mariott`,
       text: `This year's GDG ahmedabad's devfest is hosted at Courtyard by Mariott`
     }),
+    new Suggestions([
+      `list of web events`,
+      `list of mobile events`,
+      `CodeLab Schedule`
+    ]),
     new LinkOutSuggestion({
       name: `Navigate to Venue`,
       url: "https://goo.gl/maps/wcJ3dEjWKQs"
@@ -669,10 +670,6 @@ app.intent("SwagIntent", conv => {
     new SimpleResponse({
       speech: `Attendees this year will get DevFest Tshirt and a badge`,
       text: `Attendees this year will get DevFest Tshirt and a badge`
-    }),
-    new SimpleResponse({
-      speech: `Now you can ask me anything else you want to know about Devfest`,
-      text: `Now you can ask me anything else you want to know about Devfest`
     }),
     new Suggestions([`Search for talks`, `Venue`, `Register for DevFest`])
   );
@@ -750,6 +747,7 @@ app.intent("WomenInTech", conv => {
 });
 
 app.intent("ContributeIntent", conv => {
+  conv.ask("More information about contribution");
   conv.ask(
     new BasicCard({
       text: `GDG Ahmedabad is open and volunteer geek community who create exciting projects and share experience about Google technologies with a passion`,
