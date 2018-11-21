@@ -645,6 +645,7 @@ app.intent("GetInfo", (conv, params, option) => {
   // });
   // }
   // conv.ask(response);
+  conv.ask(new Suggestions([`list of web events`,`list of mobile events`,`CodeLab Schedule`]))
 });
 
 app.intent("VenueIntent", conv => {
@@ -719,7 +720,7 @@ app.intent("SpeakersIntent", conv => {
     };
   }
   conv.ask("<speak>Here are the Speakers of Devfest 2018</speak>");
-  conv.ask(new List(result), new Suggestions(`Women Speakers`));
+  conv.ask(new List(result), new Suggestions(`Women Speakers`,`Browse talks`));
 });
 
 app.intent("WomenInTech", conv => {
@@ -743,7 +744,7 @@ app.intent("WomenInTech", conv => {
       };
   }
   conv.ask("<speak>Here are the Women Speakers of Devfest 2018</speak>");
-  conv.ask(new List(result), new Suggestions(`All Speakers`));
+  conv.ask(new List(result), new Suggestions(`All Speakers`,`Browse talks`));
 });
 
 app.intent("ContributeIntent", conv => {
