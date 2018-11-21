@@ -17,52 +17,6 @@ const Mobile = require("./data/mobile.json");
 const Web = require("./data/web.json");
 const CodeLab = require("./data/codeLab.json");
 
-const { google } = require("googleapis");
-const key = require("./data/gdg-ahmedabad-devfest-a2262e8f1dee.json");
-
-let jwtClient = new google.auth.JWT(
-  key.client_email,
-  null,
-  key.private_key,
-  ["https://www.googleapis.com/auth/actions.fulfillment.conversation"],
-  null
-);
-
-jwtClient.authorize((err, tokens) => {
-  // code to retrieve target userId and intent
-  if (err) {
-    console.log(`Something went wrong ${err}`);
-  }
-  let notif = {
-    userNotification: {
-      title: "DevFest 2k18 Events Update"
-    },
-    target: {
-      userId: "<USER_ID>",
-      intent: "<INTENT>",
-      // Expects a IETF BCP-47 language code (i.e. en-US)
-      locale: "en-US"
-    }
-  };
-
-  request.post(
-    "https://actions.googleapis.com/v2/conversations:send",
-    {
-      auth: {
-        bearer: tokens.access_token
-      },
-      json: true,
-      body: { customPushMessage: notif }
-    },
-    (err, httpResponse, body) => {
-      if (!err)
-        console.log(
-          httpResponse.statusCode + ": " + httpResponse.statusMessage
-        );
-    }
-  );
-});
-
 app.intent("New Welcome Intent", conv => {
   conv.ask(
     new SimpleResponse({
