@@ -635,7 +635,7 @@ app.intent("SessionsIntent", conv => {
       speech: `Which topic are you interested in?`,
       text: `Which topic are you interested in?`
     }),
-    new Suggestions([`Mobile Track`, `Web Track`, `Codelabs sessions`])
+    new Suggestions([`Mobile Track`, `Web Track`, `Codelab Schedule`])
   );
 });
 
