@@ -671,7 +671,7 @@ app.intent("SwagIntent", conv => {
       speech: `Attendees this year will get DevFest Tshirt and a badge`,
       text: `Attendees this year will get DevFest Tshirt and a badge`
     }),
-    new Suggestions([`Search for talks`, `Venue`, `Register for DevFest`])
+    new Suggestions([`Search for talks`, `Venue`])
   );
 });
 
