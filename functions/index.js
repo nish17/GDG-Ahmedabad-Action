@@ -141,21 +141,13 @@ app.intent("eventIntent", (conv, params) => {
       result.items[`${value.title} ${key}`] = {
         synonyms: [`${value.title}, ${value.time}`],
         title: `At ${value.time}: ${value.title}`,
-        description: `${value.speaker ? value.speaker + "," : ""} Duration:${
-          value.duration
-        }`
+        description: `${value.speaker}, Duration:${value.duration}`
       };
     }
     conv.ask(`<speak>Events of Mobile Track </speak>`);
     conv.ask(
       new List(result),
-      new Suggestions(
-        [`web track`, `CodeLab schedule`, `venue`],
-        new LinkOutSuggestion({
-          name: `Navigate to Venue`,
-          url: "https://goo.gl/maps/wcJ3dEjWKQs"
-        })
-      )
+      new Suggestions([`web track`, `CodeLab schedule`, `venue`])
     );
     // conv.ask(new Suggestions(`send me talk updates`));
   } else if (eventType === "WEB") {
@@ -174,13 +166,7 @@ app.intent("eventIntent", (conv, params) => {
     conv.ask(`<speak>Events of Web track</speak>`);
     conv.ask(
       new List(result),
-      new Suggestions(
-        [`mobile track`, `CodeLab schedule`, `venue`],
-        new LinkOutSuggestion({
-          name: `Navigate to Venue`,
-          url: "https://goo.gl/maps/wcJ3dEjWKQs"
-        })
-      )
+      new Suggestions([`mobile track`, `CodeLab schedule`, `venue`])
     );
     // conv.ask(new Suggestions(`send me talk updates`));
   } else if (eventType === "CODELAB") {
@@ -191,21 +177,13 @@ app.intent("eventIntent", (conv, params) => {
       result.items[`${value.title} ${key}`] = {
         synonyms: [`${value.title}, ${value.time}`],
         title: `At ${value.time}: ${value.title}`,
-        description: `${value.speaker ? value.speaker + "," : ""} Duration:${
-          value.duration
-        }`
+        description: `${value.speaker}, Duration:${value.duration}`
       };
     }
     conv.ask(`<speak>CodeLabs Schedule</speak>`);
     conv.ask(
       new List(result),
-      new Suggestions(
-        [`mobile track`, `web track`, `venue`],
-        new LinkOutSuggestion({
-          name: `Navigate to Venue`,
-          url: "https://goo.gl/maps/wcJ3dEjWKQs"
-        })
-      )
+      new Suggestions([`mobile track`, `web track`, `venue`])
     );
     // conv.ask(new Suggestions(`send me talk updates`));
   }
