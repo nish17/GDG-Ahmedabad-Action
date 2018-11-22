@@ -221,8 +221,8 @@ app.intent("gdgCommittee", (conv, params) => {
           subtitle: `About`,
           title: key,
           buttons: new Button({
-            title: "Visit LinkedIN Profile",
-            url: committeeMembersData[`${key}`]["linkedin"]
+            title: "Visit Twitter Profile",
+            url: committeeMembersData[`${key}`]["twitter"]
           }),
           image: new Image({
             url: committeeMembersData[`${key}`]["image"],
