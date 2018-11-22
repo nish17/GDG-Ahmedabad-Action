@@ -100,7 +100,8 @@ app.intent("WTMInfo", conv => {
   conv.ask(
     new BasicCard({
       text: `A community encouraging women in tech, making Ahmedabad tech community diverse & comprehensive, share knowledge and passion through sessions, talks, workshops.`,
-      subtitle: "Dhurva Shastri leads Women Tech Makers Ahmedabad",
+      subtitle:
+        "Dhurva Shastri is a woman in tech and playing a role as an organizer and WTM Lead at GDG/WTM Ahmedabad",
       title: "About WTM",
       buttons: new Button({
         title: "Visit Website",
