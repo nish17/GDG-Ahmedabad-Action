@@ -209,10 +209,28 @@ app.intent("gdgCommittee", (conv, params) => {
   // const name = conv.body.queryResult.parameters.committeeMembers;
   const name = params.committeeMembers;
   const keys = Object.keys(committeeMembersData);
-  let handleNotFound = 1;
+
+  const COMMITTEE_MEMBERS = [
+    `Paresh Mayani`,
+    `Dhrumil Shah`,
+    `Chintan Rathod`,
+    `Jaldeep Asodariya`,
+    `Dhurva Shastri`,
+    `Utpal Betai`,
+    `Pratik Patel`
+  ];
+  let chips = [];
+  COMMITTEE_MEMBERS.forEach(names => {
+    if (names !== name) {
+      chips.push(`About ${names}`);
+    }
+  }, COMMITTEE_MEMBERS);
+
+  chips.unshift(`contribute`);
+
   keys.forEach(key => {
     if (key === name) {
-      handleNotFound = 0;
+      // handleNotFound = 0;
       // console.log(`${key} found`);
       // console.log(committeeMembersData[`${key}`]["intro"]);
       conv.ask(`<speak>${name}'s Profile.</speak>`);
@@ -241,15 +259,11 @@ app.intent("gdgCommittee", (conv, params) => {
   //   );
   // }
   conv.ask(
-    new Suggestions([
-      `About Paresh Mayani`,
-      `About Dhrumil Shah`,
-      `About Chintan Rathod`,
-      `About Jaldeep Asodariya`,
-      `About Dhurva Shastri`,
-      `About Utpal Betai`,
-      `About Pratik Patel`
-    ])
+    new LinkOutSuggestion({
+      name: `PastEvents Highlight`,
+      url: "https://www.meetup.com/GDG-Ahmedabad/events/past/"
+    }),
+    new Suggestions(chips)
   );
 });
 
@@ -292,7 +306,7 @@ app.intent("getAllMembers", conv => {
         JALDEEP_ASODARIYA: {
           synonyms: ["Jaldeep Asodariya", "Jaldeep sir", "Asodariya sir"],
           title: "Jaldeep Asodariya",
-          description: "Core organizer at GDG Ahmedabad",
+          description: "Core Organizing Team Member at GDG Ahmedabad",
           image: new Image({
             url:
               "https://pbs.twimg.com/profile_images/898486597175263232/U_9clmww_400x400.jpg",
