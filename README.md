@@ -1,6 +1,6 @@
-# GDG Ahmedabad DevFest Action
-
 <img src="/assets/gdgahm-aog-small-logo.jpg" alt="DevFest Logo" height="100" align="right" />
+
+# GDG Ahmedabad DevFest Action
 
 ## This year GDG Ahmedabad's Devfest is on 25th Novemeber
 
