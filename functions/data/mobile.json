@@ -1,28 +1,4 @@
 {
-  "1": {
-    "time": "09:00",
-    "title": "Registration and morning Coffee",
-    "duration": "30 mins",
-    "speaker": ""
-  },
-  "2": {
-    "time": "09:30",
-    "title": "GDG DevFest Ahmedabad 2018 Opening",
-    "duration": "15 mins",
-    "speaker": "Paresh Mayani and Dhrumil Shah"
-  },
-  "3": {
-    "time": "09:45",
-    "title": "Keynote 1",
-    "duration": "45 mins",
-    "speaker": "Utpal Betai"
-  },
-  "4": {
-    "time": "10:30",
-    "title": "Keynote 2 - Google Cloud and Machine Learning",
-    "duration": "30 mins",
-    "speaker": "Karthik Padmanabhan"
-  },
   "5": {
     "time": "11:15",
     "title": "New way of doing things in Android",
@@ -34,12 +10,6 @@
     "title": "Efficient Async with Kotlin Coroutines",
     "duratiom": "1 hour",
     "speaker": "Rivu Chakrborty"
-  },
-  "7": {
-    "time": "13:15",
-    "title": "Lunch Break",
-    "duration": "1 hour 15 mins",
-    "speaker": ""
   },
   "8": {
     "time": "14:30",
@@ -53,28 +23,10 @@
     "duration": "1 hour",
     "speaker": "Smit Shah"
   },
-  "10": {
-    "time": "16:30",
-    "title": "Coffee break",
-    "duration": "15 mins",
-    "speaker": ""
-  },
   "11": {
     "time": "16:45",
     "title": "How to build Reactive Architecture for Flutter",
     "duration": "1 hour",
     "speaker": "Burhanuddin Rashid"
-  },
-  "12": {
-    "time": "17:45",
-    "title": "TBD",
-    "duration": "45 mins",
-    "speaker": "Paresh Mayani"
-  },
-  "13": {
-    "time": "18:30",
-    "title": "Ending Notes",
-    "duration": "30 mins",
-    "speaker": ""
   }
 }
