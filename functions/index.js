@@ -149,7 +149,13 @@ app.intent("eventIntent", (conv, params) => {
     conv.ask(`<speak>Events of Mobile Track </speak>`);
     conv.ask(
       new List(result),
-      new Suggestions([`web track`, `CodeLab schedule`])
+      new Suggestions(
+        [`web track`, `CodeLab schedule`, `venue`],
+        new LinkOutSuggestion({
+          name: `Navigate to Venue`,
+          url: "https://goo.gl/maps/wcJ3dEjWKQs"
+        })
+      )
     );
     // conv.ask(new Suggestions(`send me talk updates`));
   } else if (eventType === "WEB") {
@@ -168,7 +174,13 @@ app.intent("eventIntent", (conv, params) => {
     conv.ask(`<speak>Events of Web track</speak>`);
     conv.ask(
       new List(result),
-      new Suggestions([`mobile track`, `CodeLab schedule`])
+      new Suggestions(
+        [`mobile track`, `CodeLab schedule`, `venue`],
+        new LinkOutSuggestion({
+          name: `Navigate to Venue`,
+          url: "https://goo.gl/maps/wcJ3dEjWKQs"
+        })
+      )
     );
     // conv.ask(new Suggestions(`send me talk updates`));
   } else if (eventType === "CODELAB") {
@@ -185,23 +197,17 @@ app.intent("eventIntent", (conv, params) => {
       };
     }
     conv.ask(`<speak>CodeLabs Schedule</speak>`);
-    conv.ask(new List(result), new Suggestions([`mobile track`, `web track`]));
+    conv.ask(
+      new List(result),
+      new Suggestions(
+        [`mobile track`, `web track`, `venue`],
+        new LinkOutSuggestion({
+          name: `Navigate to Venue`,
+          url: "https://goo.gl/maps/wcJ3dEjWKQs"
+        })
+      )
+    );
     // conv.ask(new Suggestions(`send me talk updates`));
-  }
-});
-
-app.intent("event_notification_setup_push", conv => {
-  conv.ask(new UpdatePermission({ intent: "eventIntent" }));
-});
-
-app.intent("FinishEventSetupPush", (conv, params) => {
-  if (conv.arguments.get("PERMISSION")) {
-    //const userID = conv.user.id;
-    const userID = conv.arguments.get("UPDATES_USER_ID");
-    // code to save intent and userID in your db
-    conv.close(`Ok, I'll start alerting you.`);
-  } else {
-    conv.close(`Ok, I won't alert you.`);
   }
 });
 
@@ -442,7 +448,15 @@ app.intent("SpeakersIntent", conv => {
     };
   }
   conv.ask("<speak>Here are the Speakers of Devfest 2018</speak>");
-  conv.ask(new List(result), new Suggestions(`Women Speakers`));
+  conv.ask(
+    new List(result),
+    new Suggestions(
+      `Women Speakers`,
+      `List of web events`,
+      `List of mobile events`,
+      `Codelab Schedule`
+    )
+  );
 });
 
 app.intent("WomenInTech", conv => {
@@ -466,7 +480,15 @@ app.intent("WomenInTech", conv => {
       };
   }
   conv.ask("<speak>Here are the Women Speakers of Devfest 2018</speak>");
-  conv.ask(new List(result), new Suggestions(`All Speakers`));
+  conv.ask(
+    new List(result),
+    new Suggestions(
+      `All Speakers`,
+      `List of web events`,
+      `List of mobile events`,
+      `Codelab Schedule`
+    )
+  );
 });
 
 app.intent("ContributeIntent", conv => {
