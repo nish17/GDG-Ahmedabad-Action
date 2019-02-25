@@ -15,6 +15,33 @@ It's a Google Assistant action that shows all the information about the DevFest 
 
 Talk to GDG Ahmedabad DevFest
 
+## SCREENSHOTS
+
+### About GDG Ahmedabad
+
+<img src="./assets/Screenshots/About-GDG-Ahmedabad.jpeg" height="500px"/>
+
+### List of Speakers
+
+<img src="./assets/Screenshots/Speaker2.jpeg" height="500px"/>
+<img src="./assets/Screenshots/Speakers1.jpeg" height="500px"/>
+
+### Women Speakers in DevFest 2018
+
+<img src="./assets/Screenshots/WomenSpeakers.jpeg" height="500px"/>
+
+### Schedule of Web Track events
+
+<img src="./assets/Screenshots/WebTrack.jpeg" height="500px"/>
+
+### Schedule of CodeLab
+
+<img src="./assets/Screenshots/CodeLab.jpeg" height="500px"/>
+
+### Information About WTM Ahmedabad
+
+<img src="./assets/Screenshots/WTM.jpeg" height="500px"/>
+
 ## ❤️ Credits
 
 - [Firebase Functions](https://firebase.google.com/products/functions)
@@ -23,3 +50,4 @@ Talk to GDG Ahmedabad DevFest
 ## 🎓 License
 
 MIT
+
